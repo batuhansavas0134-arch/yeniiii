@@ -210,6 +210,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       broadcastToClients({ type: "position_update", data });
     }
   });
+  pricer.setJupiterTrader(trader);
   pricer.start();
 
   wss.on("connection", (ws: WebSocket) => {
